@@ -74,6 +74,7 @@
   [data-lang] { display: none; }
   html[lang="pt"] [data-lang="pt"] { display: revert; }
   html[lang="en"] [data-lang="en"] { display: revert; }
+  html[lang="fr"] [data-lang="fr"] { display: revert; }
 </style>
 </head>
 
@@ -81,7 +82,7 @@
 
 <a href="#main-content"
    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-gold-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">
-  <span data-lang="pt">Pular para o conteúdo</span><span data-lang="en">Skip to content</span>
+  <span data-lang="pt">Pular para o conteúdo</span><span data-lang="en">Skip to content</span><span data-lang="fr">Passer au contenu</span>
 </a>
 
 <!-- =========================================================
@@ -97,18 +98,18 @@
 
     <!-- Links desktop -->
     <ul id="nav-links" class="hidden md:flex items-center gap-1 text-sm font-medium">
-      <li><a data-nav href="#sobre" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a></li>
-      <li><a data-nav href="#habilidades" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span></a></li>
-      <li><a data-nav href="#projetos" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a></li>
-      <li><a data-nav href="#experiencia" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span></a></li>
-      <li><a data-nav href="#formacao" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a></li>
-      <li><a data-nav href="#contato" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></a></li>
+      <li><a data-nav href="#sobre" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Sobre</span><span data-lang="en">About</span><span data-lang="fr">À propos</span></a></li>
+      <li><a data-nav href="#habilidades" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></a></li>
+      <li><a data-nav href="#projetos" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span><span data-lang="fr">Projets</span></a></li>
+      <li><a data-nav href="#experiencia" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span><span data-lang="fr">Expérience</span></a></li>
+      <li><a data-nav href="#formacao" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Formação</span><span data-lang="en">Education</span><span data-lang="fr">Formation</span></a></li>
+      <li><a data-nav href="#contato" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a></li>
     </ul>
 
     <div class="flex items-center gap-1">
       <!-- Seletor de idioma (mesma lógica de persistência do tema) -->
       <button id="lang-toggle" type="button"
-              data-aria-pt="Alternar idioma do site" data-aria-en="Toggle site language"
+              data-aria-pt="Alternar idioma do site" data-aria-en="Toggle site language" data-aria-fr="Changer la langue du site"
               aria-label="Alternar idioma do site"
               class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">
         <svg class="w-4 h-4 mr-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -117,11 +118,13 @@
         <span id="lang-label-pt" class="px-0.5">PT</span>
         <span class="opacity-40">/</span>
         <span id="lang-label-en" class="px-0.5">EN</span>
+        <span class="opacity-40">/</span>
+        <span id="lang-label-fr" class="px-0.5">FR</span>
       </button>
 
       <!-- Toggle de tema -->
       <button id="theme-toggle" type="button"
-              data-aria-pt="Alternar entre tema claro e escuro" data-aria-en="Toggle light and dark theme"
+              data-aria-pt="Alternar entre tema claro e escuro" data-aria-en="Toggle light and dark theme" data-aria-fr="Basculer entre thème clair et sombre"
               aria-label="Alternar entre tema claro e escuro"
               class="p-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">
         <svg id="icon-sun" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -134,7 +137,7 @@
 
       <!-- Menu mobile -->
       <button id="menu-toggle" type="button" class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"
-              data-aria-pt="Abrir menu de navegação" data-aria-en="Open navigation menu"
+              data-aria-pt="Abrir menu de navegação" data-aria-en="Open navigation menu" data-aria-fr="Ouvrir le menu de navigation"
               aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
         <svg id="icon-menu" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 12h16M4 6h16M4 18h16"/>
@@ -149,12 +152,12 @@
   <!-- Painel do menu mobile -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-950">
     <ul class="flex flex-col p-4 gap-1 text-sm font-medium">
-      <li><a data-nav href="#sobre" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a></li>
-      <li><a data-nav href="#habilidades" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span></a></li>
-      <li><a data-nav href="#projetos" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a></li>
-      <li><a data-nav href="#experiencia" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span></a></li>
-      <li><a data-nav href="#formacao" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a></li>
-      <li><a data-nav href="#contato" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></a></li>
+      <li><a data-nav href="#sobre" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Sobre</span><span data-lang="en">About</span><span data-lang="fr">À propos</span></a></li>
+      <li><a data-nav href="#habilidades" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></a></li>
+      <li><a data-nav href="#projetos" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span><span data-lang="fr">Projets</span></a></li>
+      <li><a data-nav href="#experiencia" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span><span data-lang="fr">Expérience</span></a></li>
+      <li><a data-nav href="#formacao" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Formação</span><span data-lang="en">Education</span><span data-lang="fr">Formation</span></a></li>
+      <li><a data-nav href="#contato" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a></li>
     </ul>
   </div>
 </header>
@@ -181,13 +184,13 @@
             Michael Jourdain Gbedjinou
           </h1>
           <p class="text-lg sm:text-xl font-medium text-gold-600 dark:text-gold-400">
-            Analytics Engineer <span class="text-zinc-400 dark:text-zinc-600">|</span> <span data-lang="pt">Dados &amp; Analytics</span><span data-lang="en">Data &amp; Analytics</span>
+            Analytics Engineer <span class="text-zinc-400 dark:text-zinc-600">|</span> <span data-lang="pt">Dados &amp; Analytics</span><span data-lang="en">Data &amp; Analytics</span><span data-lang="fr">Données &amp; Analytics</span>
           </p>
           <p class="flex items-center justify-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400">
             <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
             </svg>
-            <span data-lang="pt">São Paulo, BR</span><span data-lang="en">São Paulo, Brazil</span>
+            <span data-lang="pt">São Paulo, BR</span><span data-lang="en">São Paulo, Brazil</span><span data-lang="fr">São Paulo, Brésil</span>
           </p>
         </div>
 
@@ -198,10 +201,10 @@
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
             </svg>
-            <span data-lang="pt">E-mail</span><span data-lang="en">Email</span>
+            <span data-lang="pt">E-mail</span><span data-lang="en">Email</span><span data-lang="fr">E-mail</span>
           </a>
           <a href="https://wa.me/5511912915019" target="_blank" rel="noopener noreferrer"
-             data-aria-pt="Conversar no WhatsApp (abre em nova aba)" data-aria-en="Chat on WhatsApp (opens in new tab)"
+             data-aria-pt="Conversar no WhatsApp (abre em nova aba)" data-aria-en="Chat on WhatsApp (opens in new tab)" data-aria-fr="Discuter sur WhatsApp (ouvre un nouvel onglet)"
              aria-label="Conversar no WhatsApp (abre em nova aba)"
              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-graphite-700 text-zinc-700 dark:text-zinc-200 hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 text-sm font-semibold transition-colors">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -210,7 +213,7 @@
             WhatsApp
           </a>
           <a href="https://linkedin.com/in/michael-jourdain-gbedjinou-194b7917a" target="_blank" rel="noopener noreferrer"
-             data-aria-pt="Perfil no LinkedIn (abre em nova aba)" data-aria-en="LinkedIn profile (opens in new tab)"
+             data-aria-pt="Perfil no LinkedIn (abre em nova aba)" data-aria-en="LinkedIn profile (opens in new tab)" data-aria-fr="Profil LinkedIn (ouvre un nouvel onglet)"
              aria-label="Perfil no LinkedIn (abre em nova aba)"
              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-graphite-700 text-zinc-700 dark:text-zinc-200 hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 text-sm font-semibold transition-colors">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -219,7 +222,7 @@
             LinkedIn
           </a>
           <a href="https://github.com/MichaelJourdain93" target="_blank" rel="noopener noreferrer"
-             data-aria-pt="Perfil no GitHub (abre em nova aba)" data-aria-en="GitHub profile (opens in new tab)"
+             data-aria-pt="Perfil no GitHub (abre em nova aba)" data-aria-en="GitHub profile (opens in new tab)" data-aria-fr="Profil GitHub (ouvre un nouvel onglet)"
              aria-label="Perfil no GitHub (abre em nova aba)"
              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-graphite-700 text-zinc-700 dark:text-zinc-200 hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 text-sm font-semibold transition-colors">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -233,7 +236,7 @@
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 15V3"/><path d="M6 15v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"/><path d="m7 10 5 5 5-5"/>
             </svg>
-            <span data-lang="pt">Baixar currículo</span><span data-lang="en">Download resume</span>
+            <span data-lang="pt">Baixar currículo</span><span data-lang="en">Download resume</span><span data-lang="fr">Télécharger le CV</span>
           </a>
         </div>
       </div>
@@ -246,8 +249,8 @@
   <section id="sobre" class="py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="reveal">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Sobre mim</span><span data-lang="en">About Me</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white mb-6"><span data-lang="pt">Resumo profissional</span><span data-lang="en">Professional Summary</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Sobre mim</span><span data-lang="en">About Me</span><span data-lang="fr">À propos de moi</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white mb-6"><span data-lang="pt">Resumo profissional</span><span data-lang="en">Professional Summary</span><span data-lang="fr">Résumé professionnel</span></h3>
 
         <div data-lang="pt" class="space-y-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
           <p class="text-justify [hyphens:auto]">Profissional de Dados focado no desenvolvimento de soluções analíticas de ponta a ponta, da construção de pipelines robustos e modelagem dimensional à entrega de Data Products completos. Tenho histórico de resultados de negócio mensuráveis: redução de 40% do tempo de execução do processo de first mile em operações logísticas, aumento de conversão de campanhas de 20% para 45% e um modelo preditivo que reduziu em 50% os chamados de pós-venda. Hoje combino engenharia de dados, modelagem em dbt e IA Generativa para acelerar entregas e transformar dados brutos em decisões estratégicas.</p>
@@ -255,17 +258,20 @@
         <div data-lang="en" class="space-y-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
           <p class="text-justify [hyphens:auto]">Data professional focused on developing end-to-end analytics solutions, from building robust pipelines and dimensional modeling to delivering complete Data Products. I have a track record of measurable business results: a 40% reduction in first-mile process execution time in logistics operations, campaign conversion growth from 20% to 45%, and a predictive model that cut post-sale support tickets by 50%. Today I combine data engineering, dbt modeling, and Generative AI to accelerate delivery and turn raw data into strategic decisions.</p>
         </div>
+        <div data-lang="fr" class="space-y-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
+          <p class="text-justify [hyphens:auto]">Professionnel des données axé sur le développement de solutions analytiques de bout en bout, de la construction de pipelines robustes et de la modélisation dimensionnelle à la livraison de Data Products complets. J'ai un historique de résultats commerciaux mesurables : réduction de 40 % du temps d'exécution du processus de first mile dans les opérations logistiques, augmentation du taux de conversion des campagnes de 20 % à 45 %, et un modèle prédictif ayant réduit de 50 % les tickets du service après-vente. Aujourd'hui, je combine ingénierie des données, modélisation dbt et IA générative pour accélérer les livraisons et transformer des données brutes en décisions stratégiques.</p>
+        </div>
 
         <!-- Idiomas -->
         <div class="mt-8 flex flex-wrap gap-3">
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-graphite-900 border border-zinc-200 dark:border-graphite-800 text-sm text-zinc-700 dark:text-zinc-300">
-            🇧🇷 <span data-lang="pt">Português — Fluente</span><span data-lang="en">Portuguese — Fluent</span>
+            🇧🇷 <span data-lang="pt">Português — Fluente</span><span data-lang="en">Portuguese — Fluent</span><span data-lang="fr">Portugais — Courant</span>
           </span>
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-graphite-900 border border-zinc-200 dark:border-graphite-800 text-sm text-zinc-700 dark:text-zinc-300">
-            🇫🇷 <span data-lang="pt">Francês — Fluente</span><span data-lang="en">French — Fluent</span>
+            🇫🇷 <span data-lang="pt">Francês — Fluente</span><span data-lang="en">French — Fluent</span><span data-lang="fr">Français — Courant</span>
           </span>
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-graphite-900 border border-zinc-200 dark:border-graphite-800 text-sm text-zinc-700 dark:text-zinc-300">
-            🇬🇧 <span data-lang="pt">Inglês — Intermediário</span><span data-lang="en">English — Intermediate</span>
+            🇬🇧 <span data-lang="pt">Inglês — Intermediário</span><span data-lang="en">English — Intermediate</span><span data-lang="fr">Anglais — Intermédiaire</span>
           </span>
         </div>
       </div>
@@ -278,8 +284,8 @@
   <section id="habilidades" class="py-20 sm:py-28 bg-zinc-100/60 dark:bg-graphite-900/40">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12 text-center">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Stack técnica</span><span data-lang="en">Tech Stack</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Stack técnica</span><span data-lang="en">Tech Stack</span><span data-lang="fr">Stack technique</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></h3>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6">
@@ -288,7 +294,7 @@
         <div class="reveal rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 p-6">
           <h4 class="flex items-center gap-2 font-bold text-zinc-900 dark:text-white mb-4">
             <svg class="w-4 h-4 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
-            <span data-lang="pt">Linguagens &amp; Processamento</span><span data-lang="en">Languages &amp; Processing</span>
+            <span data-lang="pt">Linguagens &amp; Processamento</span><span data-lang="en">Languages &amp; Processing</span><span data-lang="fr">Langages &amp; Traitement</span>
           </h4>
           <div class="flex flex-wrap gap-2">
             <span class="skill-badge px-3 py-1.5 rounded-lg text-sm font-medium bg-gold-50 dark:bg-gold-500/10 text-gold-700 dark:text-gold-400 border border-gold-200 dark:border-gold-500/20">Python</span>
@@ -301,7 +307,7 @@
         <div class="reveal rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 p-6">
           <h4 class="flex items-center gap-2 font-bold text-zinc-900 dark:text-white mb-4">
             <svg class="w-4 h-4 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 8v4l3 3"/></svg>
-            <span data-lang="pt">Orquestração &amp; Engenharia</span><span data-lang="en">Orchestration &amp; Engineering</span>
+            <span data-lang="pt">Orquestração &amp; Engenharia</span><span data-lang="en">Orchestration &amp; Engineering</span><span data-lang="fr">Orchestration &amp; Ingénierie</span>
           </h4>
           <div class="flex flex-wrap gap-2">
             <span class="skill-badge px-3 py-1.5 rounded-lg text-sm font-medium bg-gold-50 dark:bg-gold-500/10 text-gold-700 dark:text-gold-400 border border-gold-200 dark:border-gold-500/20">Airflow</span>
@@ -328,7 +334,7 @@
         <div class="reveal rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 p-6">
           <h4 class="flex items-center gap-2 font-bold text-zinc-900 dark:text-white mb-4">
             <svg class="w-4 h-4 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
-            <span data-lang="pt">BI &amp; Visualização</span><span data-lang="en">BI &amp; Visualization</span>
+            <span data-lang="pt">BI &amp; Visualização</span><span data-lang="en">BI &amp; Visualization</span><span data-lang="fr">BI &amp; Visualisation</span>
           </h4>
           <div class="flex flex-wrap gap-2">
             <span class="skill-badge px-3 py-1.5 rounded-lg text-sm font-medium bg-gold-50 dark:bg-gold-500/10 text-gold-700 dark:text-gold-400 border border-gold-200 dark:border-gold-500/20">Power BI</span>
@@ -342,7 +348,7 @@
         <div class="reveal sm:col-span-2 rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 p-6">
           <h4 class="flex items-center gap-2 font-bold text-zinc-900 dark:text-white mb-4">
             <svg class="w-4 h-4 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 7"/></svg>
-            <span data-lang="pt">Outros</span><span data-lang="en">Other</span>
+            <span data-lang="pt">Outros</span><span data-lang="en">Other</span><span data-lang="fr">Autres</span>
           </h4>
           <div class="flex flex-wrap gap-2">
             <span class="skill-badge px-3 py-1.5 rounded-lg text-sm font-medium bg-gold-50 dark:bg-gold-500/10 text-gold-700 dark:text-gold-400 border border-gold-200 dark:border-gold-500/20">Databricks</span>
@@ -362,11 +368,12 @@
   <section id="projetos" class="py-20 sm:py-28">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12 text-center">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Portfólio técnico</span><span data-lang="en">Technical Portfolio</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Projetos &amp; GitHub</span><span data-lang="en">Projects &amp; GitHub</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Portfólio técnico</span><span data-lang="en">Technical Portfolio</span><span data-lang="fr">Portfolio technique</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Projetos &amp; GitHub</span><span data-lang="en">Projects &amp; GitHub</span><span data-lang="fr">Projets &amp; GitHub</span></h3>
         <p class="mt-3 text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
           <span data-lang="pt">Confira meus repositórios completos no GitHub. Os cards abaixo são exemplos editáveis.</span>
           <span data-lang="en">Check out my full repositories on GitHub. The cards below are editable examples.</span>
+          <span data-lang="fr">Consultez mes dépôts complets sur GitHub. Les cartes ci-dessous sont des exemples modifiables.</span>
         </p>
       </div>
 
@@ -382,11 +389,12 @@
             <svg class="w-4 h-4 text-zinc-400 group-hover:text-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
           </div>
           <h4 class="font-bold text-zinc-900 dark:text-white mb-2">
-            <span data-lang="pt">Pipeline ETL com Airflow &amp; dbt</span><span data-lang="en">ETL Pipeline with Airflow &amp; dbt</span>
+            <span data-lang="pt">Pipeline ETL com Airflow &amp; dbt</span><span data-lang="en">ETL Pipeline with Airflow &amp; dbt</span><span data-lang="fr">Pipeline ETL avec Airflow &amp; dbt</span>
           </h4>
           <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-4">
             <span data-lang="pt">Orquestração de pipelines de dados com camadas staging/core/business e testes automatizados.</span>
             <span data-lang="en">Data pipeline orchestration with staging/core/business layers and automated testing.</span>
+            <span data-lang="fr">Orchestration de pipelines de données avec des couches staging/core/business et tests automatisés.</span>
           </p>
           <div class="flex flex-wrap gap-1.5">
             <span class="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-graphite-800 text-zinc-600 dark:text-zinc-300">Python</span>
@@ -405,11 +413,12 @@
             <svg class="w-4 h-4 text-zinc-400 group-hover:text-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
           </div>
           <h4 class="font-bold text-zinc-900 dark:text-white mb-2">
-            <span data-lang="pt">Dashboard de KPIs Logísticos</span><span data-lang="en">Logistics KPI Dashboard</span>
+            <span data-lang="pt">Dashboard de KPIs Logísticos</span><span data-lang="en">Logistics KPI Dashboard</span><span data-lang="fr">Tableau de bord des KPI logistiques</span>
           </h4>
           <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-4">
             <span data-lang="pt">Painel em tempo real para monitoramento de SLAs e indicadores operacionais.</span>
             <span data-lang="en">Real-time panel for monitoring SLAs and operational indicators.</span>
+            <span data-lang="fr">Tableau de bord en temps réel pour le suivi des SLA et des indicateurs opérationnels.</span>
           </p>
           <div class="flex flex-wrap gap-1.5">
             <span class="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-graphite-800 text-zinc-600 dark:text-zinc-300">SQL</span>
@@ -428,11 +437,12 @@
             <svg class="w-4 h-4 text-zinc-400 group-hover:text-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
           </div>
           <h4 class="font-bold text-zinc-900 dark:text-white mb-2">
-            <span data-lang="pt">Modelo Preditivo de Reposição</span><span data-lang="en">Predictive Replenishment Model</span>
+            <span data-lang="pt">Modelo Preditivo de Reposição</span><span data-lang="en">Predictive Replenishment Model</span><span data-lang="fr">Modèle prédictif de réapprovisionnement</span>
           </h4>
           <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-4">
             <span data-lang="pt">Modelo de previsão de consumo para otimizar reposição de insumos e reduzir custos logísticos.</span>
             <span data-lang="en">Consumption forecasting model to optimize supply replenishment and reduce logistics costs.</span>
+            <span data-lang="fr">Modèle de prévision de la consommation pour optimiser le réapprovisionnement des fournitures et réduire les coûts logistiques.</span>
           </p>
           <div class="flex flex-wrap gap-1.5">
             <span class="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-graphite-800 text-zinc-600 dark:text-zinc-300">Python</span>
@@ -450,11 +460,12 @@
   <section id="experiencia" class="py-20 sm:py-28 bg-zinc-100/60 dark:bg-graphite-900/40">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Trajetória</span><span data-lang="en">Career Path</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Experiência profissional</span><span data-lang="en">Professional Experience</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Trajetória</span><span data-lang="en">Career Path</span><span data-lang="fr">Parcours</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Experiência profissional</span><span data-lang="en">Professional Experience</span><span data-lang="fr">Expérience professionnelle</span></h3>
         <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
           <span data-lang="pt">Clique em um cargo para ver os detalhes.</span>
           <span data-lang="en">Click on a role to see the details.</span>
+          <span data-lang="fr">Cliquez sur un poste pour voir les détails.</span>
         </p>
       </div>
 
@@ -477,7 +488,7 @@
                   <p class="font-bold text-zinc-900 dark:text-white">Analytics Engineer</p>
                   <p class="text-sm text-gold-600 dark:text-gold-400 font-medium">iFood</p>
                   <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                    <span data-lang="pt">dez/2025 — atual</span><span data-lang="en">Dec/2025 — present</span>
+                    <span data-lang="pt">dez/2025 — atual</span><span data-lang="en">Dec/2025 — present</span><span data-lang="fr">déc. 2025 — actuel</span>
                   </p>
                 </div>
               </div>
@@ -491,6 +502,7 @@
                 <ul data-lang="pt" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
                   <li>Desenvolvo e evoluo modelos de dados em dbt, estruturando camadas staging, core e business.</li>
                   <li>Refatorei modelos de dados, reduzindo débitos técnicos, custos computacionais e tempo de processamento.</li>
+                  <li>Modelei tabelas de KPIs e OKRs estratégicos e táticos em dbt, conduzindo todo o fluxo desde a validação das regras de negócio até a criação de dashboards executivos utilizados no acompanhamento de metas semestrais e de ciclo.</li>
                   <li>Traduzo requisitos de negócio em Data Products, habilitando Self-Service Analytics.</li>
                   <li>Desenvolvo dashboards em Tableau e ThoughtSpot para monitorar KPIs.</li>
                   <li>Mantenho documentação de modelos, dashboards e pipelines, promovendo Data Governance.</li>
@@ -498,9 +510,18 @@
                 <ul data-lang="en" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
                   <li>Develop and evolve dbt data models, structuring staging, core, and business layers.</li>
                   <li>Refactored data models, reducing technical debt, computational costs, and processing time.</li>
+                  <li>Modeled strategic and tactical KPI and OKR tables in dbt, owning the full flow from business rule validation to building executive dashboards used to track semester and cycle goals.</li>
                   <li>Translate business requirements into Data Products, enabling Self-Service Analytics.</li>
                   <li>Build Tableau and ThoughtSpot dashboards to monitor KPIs.</li>
                   <li>Maintain documentation for models, dashboards, and pipelines, promoting Data Governance.</li>
+                </ul>
+                <ul data-lang="fr" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
+                  <li>Je développe et fais évoluer des modèles de données en dbt, en structurant les couches staging, core et business.</li>
+                  <li>J'ai refactorisé des modèles de données, réduisant la dette technique, les coûts de calcul et le temps de traitement.</li>
+                  <li>J'ai modélisé des tables de KPI et d'OKR stratégiques et tactiques en dbt, en pilotant tout le flux, de la validation des règles métier à la création de tableaux de bord exécutifs utilisés pour le suivi des objectifs semestriels et de cycle.</li>
+                  <li>Je traduis les besoins métier en Data Products, permettant le Self-Service Analytics.</li>
+                  <li>Je développe des tableaux de bord dans Tableau et ThoughtSpot pour suivre les KPI.</li>
+                  <li>Je maintiens la documentation des modèles, tableaux de bord et pipelines, favorisant la Data Governance.</li>
                 </ul>
               </div>
             </div>
@@ -524,7 +545,7 @@
                   <p class="font-bold text-zinc-900 dark:text-white">Data Analyst</p>
                   <p class="text-sm text-gold-600 dark:text-gold-400 font-medium">iFood</p>
                   <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                    <span data-lang="pt">fev/2024 — nov/2025</span><span data-lang="en">Feb/2024 — Nov/2025</span>
+                    <span data-lang="pt">fev/2024 — nov/2025</span><span data-lang="en">Feb/2024 — Nov/2025</span><span data-lang="fr">févr. 2024 — nov. 2025</span>
                   </p>
                 </div>
               </div>
@@ -537,17 +558,21 @@
               <div>
                 <ul data-lang="pt" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
                   <li>Desenvolvi Data Products para automatizar o processo de first mile em operações logísticas, reduzindo em 40% o tempo de execução.</li>
-                  <li>Modelei tabelas de KPIs e OKRs estratégicos e táticos em dbt, conduzindo todo o fluxo desde a validação das regras de negócio até a criação de dashboards executivos utilizados no acompanhamento de metas semestrais e de ciclo.</li>
                   <li>Construí pipelines ETL/ELT integrando APIs, FTP e Google Sheets, orquestrados com Apache Airflow.</li>
                   <li>Concebi e implantei um modelo preditivo transacional para antecipação de insumos, automatizando decisões operacionais, reduzindo em 50% os chamados de pós-venda e viabilizando envios proativos de suprimentos.</li>
-                  <li>Contribuí para o aumento da conversão de campanhas de distribuição de 20% para 45%, por meio de soluções analíticas para custos logísticos, previsão de consumo e gestão de inventário.</li>
+                  <li>Contribuí para elevar a conversão de campanhas de distribuição de 20% para 45% por meio da análise de perfis de usuários, otimizando critérios de elegibilidade, risco de fraude e índice de perdas.</li>
                 </ul>
                 <ul data-lang="en" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
                   <li>Developed Data Products to automate the first-mile process in logistics operations, cutting execution time by 40%.</li>
-                  <li>Modeled strategic and tactical KPI and OKR tables in dbt, owning the full flow from business rule validation to building executive dashboards used to track semester and cycle goals.</li>
                   <li>Built ETL/ELT pipelines integrating APIs, FTP, and Google Sheets, orchestrated with Apache Airflow.</li>
                   <li>Designed and deployed a transactional predictive model for supply anticipation, automating operational decisions, cutting post-sale support tickets by 50%, and enabling proactive supply shipments.</li>
-                  <li>Contributed to raising distribution campaign conversion from 20% to 45% through analytical solutions for logistics costs, consumption forecasting, and inventory management.</li>
+                  <li>Contributed to raising distribution campaign conversion from 20% to 45% through user profile analysis, optimizing eligibility criteria, fraud risk, and loss rate.</li>
+                </ul>
+                <ul data-lang="fr" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
+                  <li>J'ai développé des Data Products pour automatiser le processus de first mile dans les opérations logistiques, réduisant le temps d'exécution de 40 %.</li>
+                  <li>J'ai construit des pipelines ETL/ELT intégrant des API, FTP et Google Sheets, orchestrés avec Apache Airflow.</li>
+                  <li>J'ai conçu et déployé un modèle prédictif transactionnel d'anticipation des besoins en fournitures, automatisant les décisions opérationnelles, réduisant de 50 % les tickets du service après-vente et permettant des envois proactifs de fournitures.</li>
+                  <li>J'ai contribué à élever le taux de conversion des campagnes de distribution de 20 % à 45 % grâce à l'analyse des profils utilisateurs, en optimisant les critères d'éligibilité, le risque de fraude et le taux de pertes.</li>
                 </ul>
               </div>
             </div>
@@ -573,6 +598,7 @@
                   <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                     <span data-lang="pt">dez/2022 — fev/2024 · 1 ano 3 meses · São Paulo, Brasil (Híbrido)</span>
                     <span data-lang="en">Dec/2022 — Feb/2024 · 1 yr 3 mos · São Paulo, Brazil (Hybrid)</span>
+                    <span data-lang="fr">déc. 2022 — févr. 2024 · 1 an 3 mois · São Paulo, Brésil (Hybride)</span>
                   </p>
                 </div>
               </div>
@@ -597,6 +623,13 @@
                   <li>Prepared customer segmentation studies and market analyses to identify new commercial optimization opportunities.</li>
                   <li>Managed Pricing via SAP, responsible for calculating, updating, and maintaining pricing policy in line with business guidelines.</li>
                 </ul>
+                <ul data-lang="fr" class="px-5 pb-5 pl-16 space-y-2 text-sm text-zinc-600 dark:text-zinc-300 list-disc marker:text-gold-500">
+                  <li>J'ai apporté un soutien stratégique à des domaines clés tels que FP&amp;A, Commercial, Marketing, Qualité, Logistique et Ressources Humaines.</li>
+                  <li>J'ai développé des tableaux de bord et des rapports analytiques dans Power BI et Excel pour suivre les indicateurs de ventes, la performance commerciale et les KPI stratégiques.</li>
+                  <li>J'ai mené des analyses de ventes, de campagnes commerciales, de rémunération variable et de définition d'objectifs, en soutenant directement la prise de décision de la direction commerciale.</li>
+                  <li>J'ai élaboré des études de segmentation de clientèle et des analyses de marché pour identifier de nouvelles opportunités d'optimisation commerciale.</li>
+                  <li>J'ai géré le Pricing via SAP, responsable du calcul, de la mise à jour et du maintien de la politique tarifaire conformément aux directives de l'entreprise.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -611,8 +644,8 @@
   <section id="formacao" class="py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Educação</span><span data-lang="en">Education</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Formação acadêmica</span><span data-lang="en">Academic Background</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Educação</span><span data-lang="en">Education</span><span data-lang="fr">Éducation</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Formação acadêmica</span><span data-lang="en">Academic Background</span><span data-lang="fr">Formation académique</span></h3>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6">
@@ -622,10 +655,10 @@
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
             </svg>
           </div>
-          <p class="font-bold text-zinc-900 dark:text-white"><span data-lang="pt">Especialização em Data Analytics</span><span data-lang="en">Data Analytics Specialization</span></p>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400"><span data-lang="pt">Pós-graduação</span><span data-lang="en">Postgraduate</span></p>
+          <p class="font-bold text-zinc-900 dark:text-white"><span data-lang="pt">Especialização em Data Analytics</span><span data-lang="en">Data Analytics Specialization</span><span data-lang="fr">Spécialisation en Data Analytics</span></p>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400"><span data-lang="pt">Pós-graduação</span><span data-lang="en">Postgraduate</span><span data-lang="fr">Formation postuniversitaire</span></p>
           <p class="text-sm text-gold-600 dark:text-gold-400 font-medium mt-2">FIAP</p>
-          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1"><span data-lang="pt">mar/2024 — mar/2025</span><span data-lang="en">Mar/2024 — Mar/2025</span></p>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1"><span data-lang="pt">mar/2024 — mar/2025</span><span data-lang="en">Mar/2024 — Mar/2025</span><span data-lang="fr">mars 2024 — mars 2025</span></p>
         </div>
 
         <div class="reveal rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 p-6 hover:border-gold-500/50 hover:-translate-y-1 transition-all">
@@ -634,10 +667,10 @@
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
             </svg>
           </div>
-          <p class="font-bold text-zinc-900 dark:text-white"><span data-lang="pt">Bacharelado em Engenharia Hídrica</span><span data-lang="en">Bachelor's Degree in Water Resources Engineering</span></p>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400"><span data-lang="pt">Graduação</span><span data-lang="en">Undergraduate</span></p>
+          <p class="font-bold text-zinc-900 dark:text-white"><span data-lang="pt">Bacharelado em Engenharia Hídrica</span><span data-lang="en">Bachelor's Degree in Water Resources Engineering</span><span data-lang="fr">Licence en Ingénierie des Ressources en Eau</span></p>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400"><span data-lang="pt">Graduação</span><span data-lang="en">Undergraduate</span><span data-lang="fr">Premier cycle</span></p>
           <p class="text-sm text-gold-600 dark:text-gold-400 font-medium mt-2">UNIFEI</p>
-          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1"><span data-lang="pt">fev/2016 — dez/2023</span><span data-lang="en">Feb/2016 — Dec/2023</span></p>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1"><span data-lang="pt">fev/2016 — dez/2023</span><span data-lang="en">Feb/2016 — Dec/2023</span><span data-lang="fr">févr. 2016 — déc. 2023</span></p>
         </div>
       </div>
     </div>
@@ -649,11 +682,12 @@
   <section id="contato" class="py-20 sm:py-28 bg-zinc-100/60 dark:bg-graphite-900/40">
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-10 text-center">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Vamos conversar</span><span data-lang="en">Let's Talk</span></h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white mb-3"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></h3>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Vamos conversar</span><span data-lang="en">Let's Talk</span><span data-lang="fr">Discutons</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white mb-3"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></h3>
         <p class="text-zinc-500 dark:text-zinc-400">
           <span data-lang="pt">Prefere enviar uma mensagem direta? Preencha o formulário abaixo.</span>
           <span data-lang="en">Prefer to send a direct message? Fill out the form below.</span>
+          <span data-lang="fr">Vous préférez envoyer un message direct ? Remplissez le formulaire ci-dessous.</span>
         </p>
       </div>
 
@@ -661,37 +695,37 @@
       <form id="contact-form" class="reveal space-y-4 p-6 sm:p-8 rounded-xl bg-white dark:bg-graphite-900 border border-zinc-200 dark:border-graphite-800" novalidate>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
-            <label for="name" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Nome</span><span data-lang="en">Name</span></label>
+            <label for="name" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Nome</span><span data-lang="en">Name</span><span data-lang="fr">Nom</span></label>
             <input type="text" id="name" name="name" required
-                   data-placeholder-pt="Seu nome" data-placeholder-en="Your name" placeholder="Seu nome"
+                   data-placeholder-pt="Seu nome" data-placeholder-en="Your name" data-placeholder-fr="Votre nom" placeholder="Seu nome"
                    class="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 dark:bg-graphite-800 border border-zinc-300 dark:border-graphite-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-colors">
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">E-mail</span><span data-lang="en">Email</span></label>
+            <label for="email" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">E-mail</span><span data-lang="en">Email</span><span data-lang="fr">E-mail</span></label>
             <input type="email" id="email" name="email" required
-                   data-placeholder-pt="seu@email.com" data-placeholder-en="your@email.com" placeholder="seu@email.com"
+                   data-placeholder-pt="seu@email.com" data-placeholder-en="your@email.com" data-placeholder-fr="votre@email.com" placeholder="seu@email.com"
                    class="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 dark:bg-graphite-800 border border-zinc-300 dark:border-graphite-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-colors">
           </div>
         </div>
         <div>
-          <label for="subject" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Assunto</span><span data-lang="en">Subject</span></label>
+          <label for="subject" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Assunto</span><span data-lang="en">Subject</span><span data-lang="fr">Sujet</span></label>
           <input type="text" id="subject" name="subject" required
-                 data-placeholder-pt="Sobre o que você quer falar?" data-placeholder-en="What would you like to talk about?" placeholder="Sobre o que você quer falar?"
+                 data-placeholder-pt="Sobre o que você quer falar?" data-placeholder-en="What would you like to talk about?" data-placeholder-fr="De quoi voulez-vous parler ?" placeholder="Sobre o que você quer falar?"
                  class="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 dark:bg-graphite-800 border border-zinc-300 dark:border-graphite-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-colors">
         </div>
         <div>
-          <label for="message" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Mensagem</span><span data-lang="en">Message</span></label>
+          <label for="message" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5"><span data-lang="pt">Mensagem</span><span data-lang="en">Message</span><span data-lang="fr">Message</span></label>
           <textarea id="message" name="message" rows="4" required
-                    data-placeholder-pt="Sua mensagem..." data-placeholder-en="Your message..." placeholder="Sua mensagem..."
+                    data-placeholder-pt="Sua mensagem..." data-placeholder-en="Your message..." data-placeholder-fr="Votre message..." placeholder="Sua mensagem..."
                     class="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 dark:bg-graphite-800 border border-zinc-300 dark:border-graphite-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-colors resize-none"></textarea>
         </div>
         <button type="submit"
                 class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gold-600 hover:bg-gold-700 dark:bg-gold-500 dark:hover:bg-gold-400 text-white dark:text-graphite-950 text-sm font-semibold transition-colors">
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/></svg>
-          <span data-lang="pt">Enviar mensagem</span><span data-lang="en">Send message</span>
+          <span data-lang="pt">Enviar mensagem</span><span data-lang="en">Send message</span><span data-lang="fr">Envoyer le message</span>
         </button>
         <p id="form-status" class="text-sm text-gold-600 dark:text-gold-400 hidden" role="status" aria-live="polite">
-          <span data-lang="pt">Abrindo seu cliente de e-mail...</span><span data-lang="en">Opening your email client...</span>
+          <span data-lang="pt">Abrindo seu cliente de e-mail...</span><span data-lang="en">Opening your email client...</span><span data-lang="fr">Ouverture de votre client de messagerie...</span>
         </p>
       </form>
     </div>
@@ -703,12 +737,12 @@
 ========================================================= -->
 <footer class="border-t border-zinc-200 dark:border-graphite-800 py-8">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500 dark:text-zinc-400">
-    <p>© <span id="year"></span> Michael Jourdain Gbedjinou. <span data-lang="pt">Todos os direitos reservados.</span><span data-lang="en">All rights reserved.</span></p>
+    <p>© <span id="year"></span> Michael Jourdain Gbedjinou. <span data-lang="pt">Todos os direitos reservados.</span><span data-lang="en">All rights reserved.</span><span data-lang="fr">Tous droits réservés.</span></p>
     <div class="flex items-center gap-4">
       <a href="https://wa.me/5511912915019" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">WhatsApp</a>
       <a href="https://linkedin.com/in/michael-jourdain-gbedjinou-194b7917a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">LinkedIn</a>
       <a href="https://github.com/MichaelJourdain93" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">GitHub</a>
-      <a href="mailto:michaeljourdaingbedjinou@gmail.com" aria-label="E-mail" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors"><span data-lang="pt">E-mail</span><span data-lang="en">Email</span></a>
+      <a href="mailto:michaeljourdaingbedjinou@gmail.com" aria-label="E-mail" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors"><span data-lang="pt">E-mail</span><span data-lang="en">Email</span><span data-lang="fr">E-mail</span></a>
     </div>
   </div>
 </footer>
@@ -760,21 +794,26 @@
   ========================================================= */
   var CV_FILES = {
     pt: 'cv_pt_br_062026.pdf',
-    en: 'cv_en_br_062026.pdf'
+    en: 'cv_en_br_062026.pdf',
+    fr: 'cv_en_br_062026.pdf'
   };
   var TITLES = {
     pt: 'Michael Jourdain Gbedjinou — Analytics Engineer',
-    en: 'Michael Jourdain Gbedjinou — Analytics Engineer'
+    en: 'Michael Jourdain Gbedjinou — Analytics Engineer',
+    fr: 'Michael Jourdain Gbedjinou — Analytics Engineer'
   };
   var DESCRIPTIONS = {
     pt: 'Portfólio de Michael Jourdain Gbedjinou, Analytics Engineer especializado em Dados & Analytics: Python, SQL, dbt, Airflow, GCP, AWS e BI.',
-    en: 'Portfolio of Michael Jourdain Gbedjinou, Analytics Engineer specialized in Data & Analytics: Python, SQL, dbt, Airflow, GCP, AWS, and BI.'
+    en: 'Portfolio of Michael Jourdain Gbedjinou, Analytics Engineer specialized in Data & Analytics: Python, SQL, dbt, Airflow, GCP, AWS, and BI.',
+    fr: 'Portfolio de Michael Jourdain Gbedjinou, Analytics Engineer spécialisé en Données & Analytics : Python, SQL, dbt, Airflow, GCP, AWS et BI.'
   };
 
   var cvLink = document.getElementById('cv-download-link');
   var docDescription = document.getElementById('doc-description');
   var langLabelPt = document.getElementById('lang-label-pt');
   var langLabelEn = document.getElementById('lang-label-en');
+  var langLabelFr = document.getElementById('lang-label-fr');
+  var LANG_CYCLE = ['pt', 'en', 'fr'];
 
   function applyLanguage(lang) {
     root.setAttribute('lang', lang);
@@ -782,10 +821,10 @@
     docDescription.setAttribute('content', DESCRIPTIONS[lang]);
 
     document.querySelectorAll('[data-aria-pt]').forEach(function (el) {
-      el.setAttribute('aria-label', lang === 'pt' ? el.getAttribute('data-aria-pt') : el.getAttribute('data-aria-en'));
+      el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang) || el.getAttribute('data-aria-pt'));
     });
     document.querySelectorAll('[data-placeholder-pt]').forEach(function (el) {
-      el.setAttribute('placeholder', lang === 'pt' ? el.getAttribute('data-placeholder-pt') : el.getAttribute('data-placeholder-en'));
+      el.setAttribute('placeholder', el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-pt'));
     });
 
     var cvFile = CV_FILES[lang];
@@ -794,14 +833,17 @@
 
     langLabelPt.className = lang === 'pt' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
     langLabelEn.className = lang === 'en' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
+    langLabelFr.className = lang === 'fr' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
   }
 
   var savedLang = storageGet('lang');
-  var browserLang = (navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+  var browserLangRaw = (navigator.language || 'pt').toLowerCase();
+  var browserLang = browserLangRaw.indexOf('pt') === 0 ? 'pt' : (browserLangRaw.indexOf('fr') === 0 ? 'fr' : 'en');
   applyLanguage(savedLang || browserLang);
 
   document.getElementById('lang-toggle').addEventListener('click', function () {
-    var newLang = root.getAttribute('lang') === 'pt' ? 'en' : 'pt';
+    var currentIndex = LANG_CYCLE.indexOf(root.getAttribute('lang'));
+    var newLang = LANG_CYCLE[(currentIndex + 1) % LANG_CYCLE.length];
     applyLanguage(newLang);
     storageSet('lang', newLang);
   });
@@ -914,6 +956,8 @@
     - assets/cv_pt_br_062026.pdf  (idioma PT)
     - assets/cv_en_br_062026.pdf  (idioma EN)
   Os dois arquivos ja estao salvos na pasta "assets" ao lado deste HTML.
+  Ainda não existe um CV em francês: enquanto isso, o idioma FR usa o CV em EN (ver CV_FILES.fr no JS).
+  Quando houver um PDF dedicado, salve-o como assets/cv_fr_br_062026.pdf e aponte CV_FILES.fr para ele.
 -->
 </body>
 </html>
