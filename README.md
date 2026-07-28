@@ -2,7 +2,7 @@
 
 Site pessoal de portfólio (HTML + Tailwind CSS), publicado no Vercel. Apresenta perfil, stack, experiência profissional, projetos em destaque e formulário de contato, com suporte a PT/EN/FR e modo claro/escuro.
 
-🔗 [Site publicado](https://portfolio-deploy-ecru-eta.vercel.app)
+🔗 [Site publicado](https://michael-gbedjinou-portfolio.vercel.app/)
 
 ## Estrutura
 
