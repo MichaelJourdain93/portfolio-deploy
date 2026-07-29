@@ -107,20 +107,20 @@
     </ul>
 
     <div class="flex items-center gap-1">
-      <!-- Seletor de idioma (mesma lógica de persistência do tema) -->
-      <button id="lang-toggle" type="button"
-              data-aria-pt="Alternar idioma do site" data-aria-en="Toggle site language" data-aria-fr="Changer la langue du site"
-              aria-label="Alternar idioma do site"
-              class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">
+      <!-- Seletor de idioma: cada sigla seleciona o idioma diretamente ao clicar -->
+      <div id="lang-selector" role="group"
+           data-aria-pt="Selecionar idioma do site" data-aria-en="Select site language" data-aria-fr="Sélectionner la langue du site"
+           aria-label="Selecionar idioma do site"
+           class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold text-zinc-500 dark:text-zinc-400">
         <svg class="w-4 h-4 mr-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/>
         </svg>
-        <span id="lang-label-pt" class="px-0.5">PT</span>
-        <span class="opacity-40">/</span>
-        <span id="lang-label-en" class="px-0.5">EN</span>
-        <span class="opacity-40">/</span>
-        <span id="lang-label-fr" class="px-0.5">FR</span>
-      </button>
+        <button type="button" id="lang-label-pt" data-lang-option="pt" class="px-1 rounded hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">PT</button>
+        <span class="opacity-40" aria-hidden="true">/</span>
+        <button type="button" id="lang-label-en" data-lang-option="en" class="px-1 rounded hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">EN</button>
+        <span class="opacity-40" aria-hidden="true">/</span>
+        <button type="button" id="lang-label-fr" data-lang-option="fr" class="px-1 rounded hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors">FR</button>
+      </div>
 
       <!-- Toggle de tema -->
       <button id="theme-toggle" type="button"
@@ -883,7 +883,6 @@
   var langLabelPt = document.getElementById('lang-label-pt');
   var langLabelEn = document.getElementById('lang-label-en');
   var langLabelFr = document.getElementById('lang-label-fr');
-  var LANG_CYCLE = ['pt', 'en', 'fr'];
 
   function applyLanguage(lang) {
     root.setAttribute('lang', lang);
@@ -901,9 +900,14 @@
     cvLink.setAttribute('href', 'assets/' + cvFile);
     cvLink.setAttribute('download', cvFile);
 
-    langLabelPt.className = lang === 'pt' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
-    langLabelEn.className = lang === 'en' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
-    langLabelFr.className = lang === 'fr' ? 'px-0.5 text-gold-600 dark:text-gold-400' : 'px-0.5 opacity-50';
+    var activeClass = 'px-1 rounded hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors text-gold-600 dark:text-gold-400';
+    var inactiveClass = 'px-1 rounded hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors opacity-50';
+    langLabelPt.className = lang === 'pt' ? activeClass : inactiveClass;
+    langLabelEn.className = lang === 'en' ? activeClass : inactiveClass;
+    langLabelFr.className = lang === 'fr' ? activeClass : inactiveClass;
+    langLabelPt.setAttribute('aria-pressed', String(lang === 'pt'));
+    langLabelEn.setAttribute('aria-pressed', String(lang === 'en'));
+    langLabelFr.setAttribute('aria-pressed', String(lang === 'fr'));
   }
 
   var savedLang = storageGet('lang');
@@ -911,11 +915,12 @@
   var browserLang = browserLangRaw.indexOf('pt') === 0 ? 'pt' : (browserLangRaw.indexOf('fr') === 0 ? 'fr' : 'en');
   applyLanguage(savedLang || browserLang);
 
-  document.getElementById('lang-toggle').addEventListener('click', function () {
-    var currentIndex = LANG_CYCLE.indexOf(root.getAttribute('lang'));
-    var newLang = LANG_CYCLE[(currentIndex + 1) % LANG_CYCLE.length];
-    applyLanguage(newLang);
-    storageSet('lang', newLang);
+  document.querySelectorAll('[data-lang-option]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var newLang = btn.getAttribute('data-lang-option');
+      applyLanguage(newLang);
+      storageSet('lang', newLang);
+    });
   });
 
   /* =========================================================
