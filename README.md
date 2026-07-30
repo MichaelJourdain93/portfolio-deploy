@@ -13,7 +13,7 @@ Personal portfolio website (HTML + Tailwind CSS), deployed on Vercel. Features p
 portfolio-deploy/
 ├── index.html          # single-page site
 └── assets/
-    └── cv_en_br_062026.pdf, cv_pt_br_062026.pdf   # resume in EN and PT
+    └── cv_en_br_072026.pdf, cv_pt_br_072026.pdf , cv_fr_br_072026.pdf   # resume in EN , FR and PT
 ```
 
 </details>
