@@ -33,7 +33,7 @@ Site pessoal de portfólio (HTML + Tailwind CSS), publicado no Vercel. Apresenta
 portfolio-deploy/
 ├── index.html          # página única do site
 └── assets/
-    └── cv_en_br_062026.pdf, cv_pt_br_062026.pdf   # currículo em EN e PT
+    └── cv_en_br_072026.pdf, cv_pt_br_072026.pdf , cv_fr_br_072026.pdf   # currículo em EN, FR e PT
 ```
 
 </details>
