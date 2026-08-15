@@ -59,6 +59,16 @@
   .accordion-panel.open { grid-template-rows: 1fr; }
   .accordion-panel > div { overflow: hidden; }
 
+  /* ===== Faixa de badges rolante (hero) =====
+     #badge-track-source e a lista real das certificacoes (edite so aqui).
+     A copia usada para o loop continuo e clonada em JS no fim da pagina -
+     nunca duplique certificacao a mao neste arquivo. */
+  .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .badge-marquee-track { animation: badge-scroll 22s linear infinite; }
+  .badge-marquee:hover .badge-marquee-track { animation-play-state: paused; }
+  @keyframes badge-scroll { from { transform: translateX(-50%); } to { transform: translateX(0%); } }
+  @media (prefers-reduced-motion: reduce) { .badge-marquee-track { animation: none; } }
+
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
     outline: 2px solid #B98D42; outline-offset: 2px; border-radius: 4px;
   }
@@ -102,6 +112,7 @@
       <li><a data-nav href="#habilidades" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></a></li>
       <li><a data-nav href="#projetos" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span><span data-lang="fr">Projets</span></a></li>
       <li><a data-nav href="#experiencia" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span><span data-lang="fr">Expérience</span></a></li>
+      <li><a data-nav href="#certificacoes" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Certificações</span><span data-lang="en">Certifications</span><span data-lang="fr">Certifications</span></a></li>
       <li><a data-nav href="#formacao" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Formação</span><span data-lang="en">Education</span><span data-lang="fr">Formation</span></a></li>
       <li><a data-nav href="#contato" class="nav-link px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900 transition-colors"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a></li>
     </ul>
@@ -156,6 +167,7 @@
       <li><a data-nav href="#habilidades" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Habilidades</span><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></a></li>
       <li><a data-nav href="#projetos" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span><span data-lang="fr">Projets</span></a></li>
       <li><a data-nav href="#experiencia" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Experiência</span><span data-lang="en">Experience</span><span data-lang="fr">Expérience</span></a></li>
+      <li><a data-nav href="#certificacoes" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Certificações</span><span data-lang="en">Certifications</span><span data-lang="fr">Certifications</span></a></li>
       <li><a data-nav href="#formacao" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Formação</span><span data-lang="en">Education</span><span data-lang="fr">Formation</span></a></li>
       <li><a data-nav href="#contato" class="block px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-graphite-900"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a></li>
     </ul>
@@ -273,6 +285,22 @@
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-graphite-900 border border-zinc-200 dark:border-graphite-800 text-sm text-zinc-700 dark:text-zinc-300">
             🇬🇧 <span data-lang="pt">Inglês — Intermediário</span><span data-lang="en">English — Intermediate</span><span data-lang="fr">Anglais — Intermédiaire</span>
           </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faixa rolante de certificações (esquerda -> direita, loop infinito).
+         EDITÁVEL: adicione um novo <a> dentro de #badge-track-source para
+         cada certificação nova. A cópia para o loop é gerada sozinha por
+         script, no fim da página — não duplique nada aqui. -->
+    <div class="badge-marquee absolute bottom-6 left-0 right-0 overflow-hidden">
+      <div id="badge-track" class="badge-marquee-track flex w-max items-center gap-4">
+        <div id="badge-track-source" class="flex items-center gap-8 pr-8">
+          <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
+             title="Databricks Fundamentals — Databricks Academy"
+             class="shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-databricks-fundamentals.png" alt="Databricks Fundamentals badge — Databricks Academy" class="h-24 w-auto object-contain" loading="lazy" />
+          </a>
         </div>
       </div>
     </div>
@@ -709,6 +737,48 @@
   </section>
 
   <!-- =========================================================
+       5b. CERTIFICAÇÕES
+       EDITÁVEL: duplique o bloco <a> abaixo para cada nova certificação.
+  ========================================================= -->
+  <section id="certificacoes" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal mb-12">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-gold-600 dark:text-gold-400 mb-2"><span data-lang="pt">Credenciais</span><span data-lang="en">Credentials</span><span data-lang="fr">Certifications</span></h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white"><span data-lang="pt">Certificações</span><span data-lang="en">Certifications</span><span data-lang="fr">Certifications</span></h3>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="reveal group rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 overflow-hidden hover:border-gold-500/50 hover:-translate-y-1 transition-all">
+          <a href="assets/certificado-databricks-fundamentals.png" target="_blank" rel="noopener noreferrer" class="block bg-zinc-100 dark:bg-graphite-950">
+            <img src="assets/certificado-databricks-fundamentals.png" alt="Certificado Databricks Accredited Databricks Fundamentals, emitido a Michael Gbedjinou"
+                 class="w-full aspect-[4/3] object-contain p-3" loading="lazy" />
+          </a>
+          <div class="p-6 pt-4">
+            <p class="font-bold text-zinc-900 dark:text-white">
+              <span data-lang="pt">Academy Accreditation — Databricks Fundamentals</span>
+              <span data-lang="en">Academy Accreditation — Databricks Fundamentals</span>
+              <span data-lang="fr">Academy Accreditation — Databricks Fundamentals</span>
+            </p>
+            <p class="text-sm text-gold-600 dark:text-gold-400 font-medium mt-1">Databricks Academy</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              <span data-lang="pt">Emitido em 15 ago 2026 · sem expiração</span>
+              <span data-lang="en">Issued Aug 15, 2026 · does not expire</span>
+              <span data-lang="fr">Délivré le 15 août 2026 · n'expire pas</span>
+            </p>
+            <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
+               class="text-xs text-gold-600 dark:text-gold-400 font-medium flex items-center gap-1 hover:underline mt-3 w-fit">
+              <span data-lang="pt">Ver credencial verificada</span>
+              <span data-lang="en">View verified credential</span>
+              <span data-lang="fr">Voir la certification vérifiée</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
        6. FORMAÇÃO ACADÊMICA
   ========================================================= -->
   <section id="formacao" class="py-20 sm:py-28">
@@ -981,6 +1051,22 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+  /* =========================================================
+     FAIXA DE BADGES — clona #badge-track-source uma vez para
+     fechar o loop continuo. Edite so o source: novas certificacoes
+     entram so ali, a copia é sempre gerada aqui.
+  ========================================================= */
+  (function () {
+    var track = document.getElementById('badge-track');
+    var source = document.getElementById('badge-track-source');
+    if (!track || !source) return;
+    var clone = source.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    clone.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); });
+    track.appendChild(clone);
+  })();
 
   /* =========================================================
      6. TIMELINE DE EXPERIÊNCIA — expandir/recolher
