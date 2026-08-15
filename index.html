@@ -65,7 +65,7 @@
      certificacao, isso pode virar uma esteira normal (varias badges lado
      a lado, sem esse sweep individual). */
   .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .badge-marquee-track { animation: badge-sweep 7s linear infinite; }
+  .badge-marquee-track { animation: badge-sweep 10s linear infinite; }
   .badge-marquee:hover .badge-marquee-track { animation-play-state: paused; }
   @keyframes badge-sweep { from { transform: translateX(-15vw); } to { transform: translateX(115vw); } }
   @media (prefers-reduced-motion: reduce) { .badge-marquee-track { animation: none; transform: translateX(2vw); } }
