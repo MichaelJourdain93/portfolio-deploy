@@ -291,13 +291,16 @@
       </div>
     </div>
 
-    <!-- Faixa de badges do hero. PADRÃO FIXO: loop contínuo (marquee).
+    <!-- Faixa de badges do hero, largura total do hero. PADRÃO FIXO:
+         loop contínuo (marquee), sempre só 3 badges visíveis por vez.
          EDITÁVEL: para uma nova certificação, some um <a> dentro de
          #badge-group, sempre com a mesma altura (h-20) dos demais. O
-         script no fim da página clona #badge-group uma vez para fechar
-         o loop sem salto — não duplique manualmente aqui. -->
-    <div class="badge-marquee absolute bottom-4 left-1/2 -translate-x-1/2 overflow-hidden h-20">
-      <div id="badge-track" class="badge-marquee-track flex w-max items-center gap-10">
+         script no fim da página clona #badge-group uma vez e insere um
+         espaçador do tamanho da faixa entre original e cópia, para a
+         cópia só aparecer quando o original já saiu — não duplique
+         manualmente aqui. -->
+    <div class="badge-marquee absolute bottom-4 left-0 right-0 overflow-hidden h-20">
+      <div id="badge-track" class="badge-marquee-track flex w-max items-center">
         <div id="badge-group" class="flex items-center gap-10 shrink-0">
           <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
              title="Databricks Fundamentals — Databricks Academy"
@@ -1145,13 +1148,13 @@
   document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
 
   /* =========================================================
-     FAIXA DE BADGES — loop continuo de verdade, só 3 visíveis (padrao fixo).
-     Clona #badge-group uma unica vez e coloca a copia logo depois,
-     separada pelo mesmo gap — necessário para o loop fechar sem salto.
-     A janela visível (.badge-marquee) é travada na largura exata do
-     grupo, então a cópia nunca aparece ao lado do original: sempre
-     só as 3 badges reais visíveis, entrando e saindo pela lateral.
-     Desloca a faixa continuamente pela largura do grupo + gap.
+     FAIXA DE BADGES — largura total do hero, loop continuo, só 3
+     visíveis por vez (padrao fixo).
+     Clona #badge-group uma unica vez e insere entre original e cópia
+     um espaçador do tamanho da propria faixa (.badge-marquee) — assim
+     a cópia só chega quando o original já saiu por completo, nunca
+     ficam as duas visíveis ao mesmo tempo. As 3 badges atravessam a
+     faixa toda (da direita pra esquerda) e reiniciam sem salto.
      Reavalia no resize (mede de novo e reposiciona).
   ========================================================= */
   (function () {
@@ -1159,15 +1162,19 @@
     var track = document.getElementById('badge-track');
     var group = document.getElementById('badge-group');
     if (!wrap || !track || !group) return;
+    var spacer = document.createElement('div');
+    spacer.className = 'shrink-0';
+    spacer.setAttribute('aria-hidden', 'true');
     var clone = group.cloneNode(true);
     clone.removeAttribute('id');
     clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(spacer);
     track.appendChild(clone);
     function ajustar() {
-      var gapPx = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
-      var largura = group.getBoundingClientRect().width;
-      track.style.setProperty('--group-shift', (largura + gapPx) + 'px');
-      wrap.style.width = largura + 'px';
+      var largura = wrap.getBoundingClientRect().width;
+      var largGrupo = group.getBoundingClientRect().width;
+      spacer.style.width = Math.max(0, largura - largGrupo) + 'px';
+      track.style.setProperty('--group-shift', largura + 'px');
     }
     ajustar();
     track.classList.add('is-scrolling');
