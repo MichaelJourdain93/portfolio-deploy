@@ -67,7 +67,7 @@
      vaivém (ida e volta suave, sem salto) com a distância exata medida.
      Se tudo couber sem transbordar, a faixa fica parada. */
   .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .badge-marquee-track.is-scrolling { animation: badge-pingpong 9s ease-in-out infinite alternate; }
+  .badge-marquee-track.is-scrolling { animation: badge-pingpong 7s ease-in-out infinite alternate; }
   .badge-marquee:hover .badge-marquee-track.is-scrolling { animation-play-state: paused; }
   @keyframes badge-pingpong { from { transform: translateX(0); } to { transform: translateX(var(--badge-shift, 0)); } }
   @media (prefers-reduced-motion: reduce) { .badge-marquee-track.is-scrolling { animation: none; } }
@@ -1144,9 +1144,10 @@
 
   /* =========================================================
      FAIXA DE BADGES — sem clone, sem duplicacao (padrao fixo).
-     Sempre aplica um vaivem (ida e volta suave): quando o conteudo
-     transborda do container, usa a distancia exata que falta mostrar;
-     quando cabe, usa um deslize curto so pelo efeito visual.
+     Sempre atravessa a faixa de um canto a outro do container:
+     se o conteudo transborda, revela a parte escondida (desloca p/
+     a esquerda); se cabe folgado, atravessa o espaco vazio inteiro
+     (desloca p/ a direita, ate encostar na borda oposta).
      Reavalia no resize.
   ========================================================= */
   (function () {
@@ -1156,9 +1157,9 @@
     function ajustar() {
       track.classList.remove('is-scrolling');
       track.style.removeProperty('--badge-shift');
-      var sobra = track.scrollWidth - wrap.clientWidth;
-      var deslocamento = sobra > 4 ? (sobra + 16) : 48;
-      track.style.setProperty('--badge-shift', (-deslocamento) + 'px');
+      var folga = wrap.clientWidth - track.scrollWidth;
+      var deslocamento = folga >= 0 ? folga : -(-folga + 16);
+      track.style.setProperty('--badge-shift', deslocamento + 'px');
       track.classList.add('is-scrolling');
     }
     ajustar();
