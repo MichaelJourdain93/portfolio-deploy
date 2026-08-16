@@ -59,16 +59,15 @@
   .accordion-panel.open { grid-template-rows: 1fr; }
   .accordion-panel > div { overflow: hidden; }
 
-  /* ===== Badge rolante (hero) =====
-     Uma unica badge atravessa a faixa de ponta a ponta e reinicia - sem
-     clone, sem loop de conteudo duplicado. Se um dia houver mais de uma
-     certificacao, isso pode virar uma esteira normal (varias badges lado
-     a lado, sem esse sweep individual). */
+  /* ===== Faixa de badges rolante (hero) =====
+     #badge-track-source e a lista real das certificacoes (edite so ali).
+     A copia usada para fechar o loop e clonada em JS no fim da pagina -
+     nunca duplique certificacao a mao neste arquivo. */
   .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .badge-marquee-track { animation: badge-sweep 10s linear infinite; }
+  .badge-marquee-track { animation: badge-scroll 16s linear infinite; }
   .badge-marquee:hover .badge-marquee-track { animation-play-state: paused; }
-  @keyframes badge-sweep { from { transform: translateX(-15vw); } to { transform: translateX(115vw); } }
-  @media (prefers-reduced-motion: reduce) { .badge-marquee-track { animation: none; transform: translateX(2vw); } }
+  @keyframes badge-scroll { from { transform: translateX(0%); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .badge-marquee-track { animation: none; } }
 
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
     outline: 2px solid #B98D42; outline-offset: 2px; border-radius: 4px;
@@ -290,15 +289,29 @@
       </div>
     </div>
 
-    <!-- Badge rolante (esquerda -> direita, ponta a ponta, sem clone).
-         Só uma badge por enquanto: nada aqui precisa ser duplicado. -->
+    <!-- Faixa rolante de certificações (esquerda -> direita, loop infinito).
+         EDITÁVEL: adicione um novo <a> dentro de #badge-track-source para
+         cada certificação nova. A cópia para o loop é gerada sozinha por
+         script, no fim da página — não duplique nada aqui. -->
     <div class="badge-marquee absolute bottom-4 left-0 right-0 overflow-hidden h-36">
-      <div class="badge-marquee-track absolute top-0">
-        <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
-           title="Databricks Fundamentals — Databricks Academy"
-           class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
-          <img src="assets/badge-databricks-fundamentals.png" alt="Databricks Fundamentals badge — Databricks Academy" class="h-36 w-auto object-contain" loading="lazy" />
-        </a>
+      <div id="badge-track" class="badge-marquee-track flex w-max items-center gap-10">
+        <div id="badge-track-source" class="flex items-center gap-10 pr-10">
+          <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
+             title="Databricks Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-databricks-fundamentals.png" alt="Databricks Fundamentals badge — Databricks Academy" class="h-36 w-auto object-contain" loading="lazy" />
+          </a>
+          <a href="https://credentials.databricks.com/177a8676-436c-47bd-995c-c4551746f6ec" target="_blank" rel="noopener noreferrer"
+             title="Generative AI Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-generative-ai-fundamentals.png" alt="Generative AI Fundamentals badge — Databricks Academy" class="h-36 w-auto object-contain" loading="lazy" />
+          </a>
+          <a href="https://credentials.databricks.com/f1b1f02f-97f9-42ab-8911-0f68b38aee72" target="_blank" rel="noopener noreferrer"
+             title="AI Agent Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-ai-agent-fundamentals.png" alt="AI Agent Fundamentals badge — Databricks Academy" class="h-36 w-auto object-contain" loading="lazy" />
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -796,6 +809,60 @@
             </a>
           </div>
         </div>
+
+        <div class="reveal group rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 overflow-hidden hover:border-gold-500/50 hover:-translate-y-1 transition-all">
+          <a href="assets/certificado-generative-ai-fundamentals.png" target="_blank" rel="noopener noreferrer" class="block bg-zinc-100 dark:bg-graphite-950">
+            <img src="assets/certificado-generative-ai-fundamentals.png" alt="Certificado Databricks Accredited Generative AI Fundamentals, emitido a Michael Gbedjinou"
+                 class="w-full aspect-[4/3] object-contain p-3" loading="lazy" />
+          </a>
+          <div class="p-6 pt-4">
+            <p class="font-bold text-zinc-900 dark:text-white">
+              <span data-lang="pt">Academy Accreditation — Generative AI Fundamentals</span>
+              <span data-lang="en">Academy Accreditation — Generative AI Fundamentals</span>
+              <span data-lang="fr">Academy Accreditation — Generative AI Fundamentals</span>
+            </p>
+            <p class="text-sm text-gold-600 dark:text-gold-400 font-medium mt-1">Databricks Academy</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              <span data-lang="pt">Emitido em 16 ago 2026 · sem expiração</span>
+              <span data-lang="en">Issued Aug 16, 2026 · does not expire</span>
+              <span data-lang="fr">Délivré le 16 août 2026 · n'expire pas</span>
+            </p>
+            <a href="https://credentials.databricks.com/177a8676-436c-47bd-995c-c4551746f6ec" target="_blank" rel="noopener noreferrer"
+               class="text-xs text-gold-600 dark:text-gold-400 font-medium flex items-center gap-1 hover:underline mt-3 w-fit">
+              <span data-lang="pt">Ver credencial verificada</span>
+              <span data-lang="en">View verified credential</span>
+              <span data-lang="fr">Voir la certification vérifiée</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal group rounded-xl border border-zinc-200 dark:border-graphite-800 bg-white dark:bg-graphite-900 overflow-hidden hover:border-gold-500/50 hover:-translate-y-1 transition-all">
+          <a href="assets/certificado-ai-agent-fundamentals.png" target="_blank" rel="noopener noreferrer" class="block bg-zinc-100 dark:bg-graphite-950">
+            <img src="assets/certificado-ai-agent-fundamentals.png" alt="Certificado Databricks Accredited AI Agent Fundamentals, emitido a Michael Gbedjinou"
+                 class="w-full aspect-[4/3] object-contain p-3" loading="lazy" />
+          </a>
+          <div class="p-6 pt-4">
+            <p class="font-bold text-zinc-900 dark:text-white">
+              <span data-lang="pt">Academy Accreditation — AI Agent Fundamentals</span>
+              <span data-lang="en">Academy Accreditation — AI Agent Fundamentals</span>
+              <span data-lang="fr">Academy Accreditation — AI Agent Fundamentals</span>
+            </p>
+            <p class="text-sm text-gold-600 dark:text-gold-400 font-medium mt-1">Databricks Academy</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              <span data-lang="pt">Emitido em 16 ago 2026 · sem expiração</span>
+              <span data-lang="en">Issued Aug 16, 2026 · does not expire</span>
+              <span data-lang="fr">Délivré le 16 août 2026 · n'expire pas</span>
+            </p>
+            <a href="https://credentials.databricks.com/f1b1f02f-97f9-42ab-8911-0f68b38aee72" target="_blank" rel="noopener noreferrer"
+               class="text-xs text-gold-600 dark:text-gold-400 font-medium flex items-center gap-1 hover:underline mt-3 w-fit">
+              <span data-lang="pt">Ver credencial verificada</span>
+              <span data-lang="en">View verified credential</span>
+              <span data-lang="fr">Voir la certification vérifiée</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1073,6 +1140,22 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+  /* =========================================================
+     FAIXA DE BADGES — clona #badge-track-source uma vez para
+     fechar o loop continuo. Edite so o source: novas certificacoes
+     entram so ali, a copia e sempre gerada aqui.
+  ========================================================= */
+  (function () {
+    var track = document.getElementById('badge-track');
+    var source = document.getElementById('badge-track-source');
+    if (!track || !source) return;
+    var clone = source.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    clone.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); });
+    track.appendChild(clone);
+  })();
 
   /* =========================================================
      6. TIMELINE DE EXPERIÊNCIA — expandir/recolher
