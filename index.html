@@ -296,7 +296,7 @@
          #badge-group, sempre com a mesma altura (h-20) dos demais. O
          script no fim da página clona #badge-group uma vez para fechar
          o loop sem salto — não duplique manualmente aqui. -->
-    <div class="badge-marquee absolute bottom-4 left-0 right-0 overflow-hidden h-20">
+    <div class="badge-marquee absolute bottom-4 left-1/2 -translate-x-1/2 overflow-hidden h-20">
       <div id="badge-track" class="badge-marquee-track flex w-max items-center gap-10">
         <div id="badge-group" class="flex items-center gap-10 shrink-0">
           <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
@@ -1145,13 +1145,14 @@
   document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
 
   /* =========================================================
-     FAIXA DE BADGES — loop continuo de verdade (padrao fixo).
+     FAIXA DE BADGES — loop continuo de verdade, só 3 visíveis (padrao fixo).
      Clona #badge-group uma unica vez e coloca a copia logo depois,
-     separada pelo mesmo gap. Desloca a faixa continuamente pela
-     largura do grupo + gap: quando completa esse trecho, o que
-     estava fora de vista (a copia) ja esta exatamente onde o
-     original comecou — a faixa reinicia sem salto visivel.
-     Reavalia no resize (mede de novo e reposiciona a copia).
+     separada pelo mesmo gap — necessário para o loop fechar sem salto.
+     A janela visível (.badge-marquee) é travada na largura exata do
+     grupo, então a cópia nunca aparece ao lado do original: sempre
+     só as 3 badges reais visíveis, entrando e saindo pela lateral.
+     Desloca a faixa continuamente pela largura do grupo + gap.
+     Reavalia no resize (mede de novo e reposiciona).
   ========================================================= */
   (function () {
     var wrap = document.querySelector('.badge-marquee');
@@ -1164,16 +1165,26 @@
     track.appendChild(clone);
     function ajustar() {
       var gapPx = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
-      track.style.setProperty('--group-shift', (group.getBoundingClientRect().width + gapPx) + 'px');
+      var largura = group.getBoundingClientRect().width;
+      track.style.setProperty('--group-shift', (largura + gapPx) + 'px');
+      wrap.style.width = largura + 'px';
     }
     ajustar();
     track.classList.add('is-scrolling');
     window.addEventListener('resize', ajustar);
     var imgs = group.querySelectorAll('img');
     Array.prototype.forEach.call(imgs, function (img) {
-      if (img.complete) return;
       img.addEventListener('load', ajustar);
     });
+    // reforço: nem sempre o evento "load" chega (aba em segundo plano,
+    // cache do navegador), então tambem reajusta por um curto periodo
+    // enquanto a largura das imagens ainda estiver mudando.
+    var tentativas = 0;
+    var poll = setInterval(function () {
+      ajustar();
+      tentativas++;
+      if (tentativas > 20) clearInterval(poll);
+    }, 150);
   })();
 
   /* =========================================================
