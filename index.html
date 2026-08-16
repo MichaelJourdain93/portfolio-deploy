@@ -63,11 +63,11 @@
      PADRÃO FIXO a partir daqui: nunca clonar conteúdo para fechar loop.
      #badge-track leva a lista real de certificações, uma vez só — para
      adicionar uma nova, é só somar um <a> aqui dentro. O script no fim da
-     página mede se o conteúdo transborda do contêiner; só então aplica um
-     vaivém (ida e volta suave, sem salto) com a distância exata medida.
-     Se tudo couber sem transbordar, a faixa fica parada. */
+     página mede a distância de um canto a outro do contêiner e aplica
+     um loop: a faixa anda numa direção só e reinicia (sem clone — o
+     reinício dá um pequeno salto, é o trade-off aceito). */
   .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .badge-marquee-track.is-scrolling { animation: badge-pingpong 7s ease-in-out infinite alternate; }
+  .badge-marquee-track.is-scrolling { animation: badge-pingpong 7s ease-in-out infinite; }
   .badge-marquee:hover .badge-marquee-track.is-scrolling { animation-play-state: paused; }
   @keyframes badge-pingpong { from { transform: translateX(0); } to { transform: translateX(var(--badge-shift, 0)); } }
   @media (prefers-reduced-motion: reduce) { .badge-marquee-track.is-scrolling { animation: none; } }
