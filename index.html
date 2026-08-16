@@ -60,16 +60,15 @@
   .accordion-panel > div { overflow: hidden; }
 
   /* ===== Faixa de badges (hero) =====
-     PADRÃO FIXO a partir daqui: nunca clonar conteúdo para fechar loop.
-     #badge-track leva a lista real de certificações, uma vez só — para
-     adicionar uma nova, é só somar um <a> aqui dentro. O script no fim da
-     página mede a distância de um canto a outro do contêiner e aplica
-     um loop: a faixa anda numa direção só e reinicia (sem clone — o
-     reinício dá um pequeno salto, é o trade-off aceito). */
+     PADRÃO FIXO a partir daqui: loop contínuo de verdade (marquee).
+     #badge-group leva a lista real de certificações, uma vez só — para
+     adicionar uma nova, é só somar um <a> aqui dentro. O script no fim
+     da página clona esse grupo uma única vez (para fechar o loop sem
+     salto) e desloca a faixa continuamente por essa mesma largura. */
   .badge-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
-  .badge-marquee-track.is-scrolling { animation: badge-pingpong 7s ease-in-out infinite; }
+  .badge-marquee-track.is-scrolling { animation: badge-loop 9s linear infinite; }
   .badge-marquee:hover .badge-marquee-track.is-scrolling { animation-play-state: paused; }
-  @keyframes badge-pingpong { from { transform: translateX(0); } to { transform: translateX(var(--badge-shift, 0)); } }
+  @keyframes badge-loop { from { transform: translateX(0); } to { transform: translateX(calc(-1 * var(--group-shift, 0))); } }
   @media (prefers-reduced-motion: reduce) { .badge-marquee-track.is-scrolling { animation: none; } }
 
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
@@ -292,27 +291,30 @@
       </div>
     </div>
 
-    <!-- Faixa de badges do hero. PADRÃO FIXO: sem clone, sem duplicação.
-         EDITÁVEL: para uma nova certificação, some um <a> aqui dentro,
-         sempre com a mesma altura (h-20) dos demais. O script no fim da
-         página mede sozinho se precisa de vaivém ou se fica parado. -->
+    <!-- Faixa de badges do hero. PADRÃO FIXO: loop contínuo (marquee).
+         EDITÁVEL: para uma nova certificação, some um <a> dentro de
+         #badge-group, sempre com a mesma altura (h-20) dos demais. O
+         script no fim da página clona #badge-group uma vez para fechar
+         o loop sem salto — não duplique manualmente aqui. -->
     <div class="badge-marquee absolute bottom-4 left-0 right-0 overflow-hidden h-20">
       <div id="badge-track" class="badge-marquee-track flex w-max items-center gap-10">
-        <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
-           title="Databricks Fundamentals — Databricks Academy"
-           class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
-          <img src="assets/badge-databricks-fundamentals.png?v=2" alt="Databricks Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
-        </a>
-        <a href="https://credentials.databricks.com/177a8676-436c-47bd-995c-c4551746f6ec" target="_blank" rel="noopener noreferrer"
-           title="Generative AI Fundamentals — Databricks Academy"
-           class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
-          <img src="assets/badge-generative-ai-fundamentals.png?v=2" alt="Generative AI Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
-        </a>
-        <a href="https://credentials.databricks.com/f1b1f02f-97f9-42ab-8911-0f68b38aee72" target="_blank" rel="noopener noreferrer"
-           title="AI Agent Fundamentals — Databricks Academy"
-           class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
-          <img src="assets/badge-ai-agent-fundamentals.png?v=2" alt="AI Agent Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
-        </a>
+        <div id="badge-group" class="flex items-center gap-10 shrink-0">
+          <a href="https://credentials.databricks.com/2711e18c-1554-4c2f-b6b8-0d9ec6ec68e2" target="_blank" rel="noopener noreferrer"
+             title="Databricks Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-databricks-fundamentals.png?v=2" alt="Databricks Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
+          </a>
+          <a href="https://credentials.databricks.com/177a8676-436c-47bd-995c-c4551746f6ec" target="_blank" rel="noopener noreferrer"
+             title="Generative AI Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-generative-ai-fundamentals.png?v=2" alt="Generative AI Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
+          </a>
+          <a href="https://credentials.databricks.com/f1b1f02f-97f9-42ab-8911-0f68b38aee72" target="_blank" rel="noopener noreferrer"
+             title="AI Agent Fundamentals — Databricks Academy"
+             class="block shrink-0 hover:-translate-y-0.5 hover:opacity-90 transition-all">
+            <img src="assets/badge-ai-agent-fundamentals.png?v=2" alt="AI Agent Fundamentals badge — Databricks Academy" class="h-20 w-auto object-contain" loading="lazy" />
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1143,27 +1145,35 @@
   document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
 
   /* =========================================================
-     FAIXA DE BADGES — sem clone, sem duplicacao (padrao fixo).
-     Sempre atravessa a faixa de um canto a outro do container:
-     se o conteudo transborda, revela a parte escondida (desloca p/
-     a esquerda); se cabe folgado, atravessa o espaco vazio inteiro
-     (desloca p/ a direita, ate encostar na borda oposta).
-     Reavalia no resize.
+     FAIXA DE BADGES — loop continuo de verdade (padrao fixo).
+     Clona #badge-group uma unica vez e coloca a copia logo depois,
+     separada pelo mesmo gap. Desloca a faixa continuamente pela
+     largura do grupo + gap: quando completa esse trecho, o que
+     estava fora de vista (a copia) ja esta exatamente onde o
+     original comecou — a faixa reinicia sem salto visivel.
+     Reavalia no resize (mede de novo e reposiciona a copia).
   ========================================================= */
   (function () {
     var wrap = document.querySelector('.badge-marquee');
     var track = document.getElementById('badge-track');
-    if (!wrap || !track) return;
+    var group = document.getElementById('badge-group');
+    if (!wrap || !track || !group) return;
+    var clone = group.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
     function ajustar() {
-      track.classList.remove('is-scrolling');
-      track.style.removeProperty('--badge-shift');
-      var folga = wrap.clientWidth - track.scrollWidth;
-      var deslocamento = folga >= 0 ? folga : -(-folga + 16);
-      track.style.setProperty('--badge-shift', deslocamento + 'px');
-      track.classList.add('is-scrolling');
+      var gapPx = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
+      track.style.setProperty('--group-shift', (group.getBoundingClientRect().width + gapPx) + 'px');
     }
     ajustar();
+    track.classList.add('is-scrolling');
     window.addEventListener('resize', ajustar);
+    var imgs = group.querySelectorAll('img');
+    Array.prototype.forEach.call(imgs, function (img) {
+      if (img.complete) return;
+      img.addEventListener('load', ajustar);
+    });
   })();
 
   /* =========================================================
